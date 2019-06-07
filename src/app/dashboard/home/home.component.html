@@ -1,0 +1,17 @@
+
+<div class="flex-container">
+    <div>
+      <div>Portfolio</div>
+        <ag-grid-angular 
+        style="width: 500px; height: 500px;" 
+        class="ag-theme-balham"
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs"
+        >
+      </ag-grid-angular>
+    </div>
+    <div>
+        <chart [options] = "chartOptions" style="display: block" type = "chart"> </chart>
+    </div>
+   
+  </div>
