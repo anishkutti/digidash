@@ -10,11 +10,11 @@ export class AppComponent {
   title = 'digidash';
   sideMenuStatus: boolean;
   selectedIndex: number = null;
-  activeMenuNumber:number = 1;
+  activeMenuNumber:number;
 
   constructor() {
     this.sideMenuStatus = true;
-    this.activeMenuNumber =1
+    //this.activeMenuNumber =0
   }
   setIndex(index: number) {
       this.selectedIndex = index;
@@ -32,25 +32,29 @@ public activateMenu(menuId)   {
   public openCloseNav() {
     if (this.sideMenuStatus) {
       document.getElementById("mySidenav").style.width = "120px";
-      document.getElementById("main").style.marginRight = "250px";
-      document.getElementById("main").style.paddingRight = "150px";
+      document.getElementById("main").style.marginRight = "122px";
+      document.getElementById("mySidenav").style.visibility ="";
       this.sideMenuStatus=false;
     }
     else {
       document.getElementById("mySidenav").style.width = "0";
       document.getElementById("main").style.marginRight = "0";
       document.getElementById("main").style.paddingRight = "0";
+      document.getElementById("main").style.marginLeft = "0";
+      document.getElementById("main").style.paddingLeft = "0";
+      document.getElementById("mySidenav").style.visibility="hidden";
 
       this.sideMenuStatus=true;
     }
-    //  document.getElementById("mySidenav").style.width == "0" ?  "250px" : "0";
-    //  document.getElementById("main").style.marginLeft == "0" ?  "250px" : "0";
 
   }
 
-  public closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+  public mouseLeave() {
+    this.openCloseNav();
   }
 
+  public mouseEnter() {
+    this.sideMenuStatus=true;
+    this.openCloseNav();
+  }
 }
