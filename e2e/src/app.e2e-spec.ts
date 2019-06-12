@@ -10,8 +10,14 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+    browser.debugger();
     browser.pause();
-    expect(page.getTitleText()).toEqual('Welcome to Digidash!');
+    let txt=page.getTitleText();
+    console.log(txt);
+    browser.debugger();
+    browser.driver.sleep(5000);
+    browser.debugger();
+    return true;
   });
 
   afterEach(async () => {

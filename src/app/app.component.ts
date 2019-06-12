@@ -53,7 +53,8 @@ public activateMenu(menuId)   {
     this.openCloseNav();
   }
 
-  public mouseEnter() {
+  public mouseEnter(event) {
+    console.log(event);
     this.sideMenuStatus=true;
     this.openCloseNav();
   }

@@ -1,14 +1,18 @@
 <div class="top-header">
 
-<span class="dg-nav-menu-icon" (click)="openCloseNav()" (mouseenter)="mouseEnter()">&#9776;</span>
+<span class="dg-nav-menu-icon" (click)="openCloseNav()" (mouseenter)="mouseEnter($event)">&#9776;</span>
 <div  style=" padding-left:25px;font-size:20px; padding-top:8px; font-weight: 800px"> <i class="fa fa-fw fa-rub" style="font-size:20px;padding-right:35px; color:rgb(15, 150, 150)"></i>Geeks</div>
 </div>
 
 <div id="mySidenav" class="sidenav"  (mouseleave)="mouseLeave()">
-    <a href="#"  routerLink="/home" routerLinkActive="active" class="cust-menu-box"   (click)="activateMenu(1)"><i class="fa fa-fw fa-home"></i><span  class="menu-text">Home</span></a> 
-    <a href="#"  routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)"><i class="fa fa-fw fa-search"></i><span  class="menu-text">Search</span></a> 
-    <a href="#"  class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)"> <i class="fa fa-fw fa-envelope"></i><span  class="menu-text">Contact</span></a> 
-    <a href="#" class="cust-menu-box"  routerLinkActive="active" (click)="activateMenu(4)" ><i class="fa fa-fw fa-user"></i><span  class="menu-text">User</span></a> 
+    <a href="#"  id="menu-option-1" routerLink="/home"     routerLinkActive="active" class="cust-menu-box"   (click)="activateMenu(1)">
+          <i class="fa fa-fw fa-home"></i><span  class="menu-text">Home</span></a> 
+    <a href="#"  id="menu-option-2" routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)">
+          <i class="fa fa-fw fa-search"></i><span  class="menu-text">Search</span></a> 
+    <a href="#"  id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)"> 
+          <i class="fa fa-fw fa-envelope"></i><span  class="menu-text">Contact</span></a> 
+    <a href="#" id="menu-option-4" class="cust-menu-box"  routerLinkActive="active"  (click)="activateMenu(4)" >
+          <i class="fa fa-fw fa-user"></i><span  class="menu-text" >User</span></a> 
 </div>
 <div class="top-nav-row">
   Home  /  <span style="color:rgb(95, 192, 224);font-weight:450"> Dashboard </span>

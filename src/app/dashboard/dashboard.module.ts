@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AgGridModule } from 'ag-grid-angular';
+// HttpClient
+import { HttpClientModule } from "@angular/common/http";
 
+//import { ChartModule } from 'angular2-highcharts';
+//import * as highcharts from 'Highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartModule } from 'angular2-highcharts';
-import * as highcharts from 'Highcharts';
-
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 
@@ -16,7 +18,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ChartModule.forRoot(highcharts),
+  //  ChartModule.forRoot(highcharts),
+   HighchartsChartModule,
+   HttpClientModule,
     AgGridModule.withComponents([])    
   ]
 })
