@@ -1,9 +1,10 @@
+
 <div class="flex-container" id="agGridCustData">
   <div>
-    <div id="myPortfolio" class="testcls">Portfolio</div>
+    <div id="myPortfolio" class="header-text">Portfolio - Top 5 </div>
     <ag-grid-angular
     #agGrid
-    style="width: 100%; height: 100%;"
+    style="width: 100%; height: 80%;"
     id="myGrid"
     class="ag-theme-balham"
     [columnDefs]="columnDefs"
@@ -13,9 +14,10 @@
     [suppressRowTransform]="true"
     (gridReady)="onGridReady($event)"
   ></ag-grid-angular>
-  
+
   </div>
   <div>
+      <div id="myPortfolio" class="header-text">Trends</div>
     <highcharts-chart 
     [Highcharts]="Highcharts"
   
@@ -27,8 +29,11 @@
     [oneToOne]="oneToOneFlag"
     [runOutsideAngular]="runOutsideAngularFlag"
   
-    style="width: 100%; height: 400px; display: block;"
+    style="width: 100%; height: 400px; display: block; margin-bottom:14px; border:1px solid white; border-radius: 7px;"
   ></highcharts-chart>
   </div>
-
+  <div class="flex-container-card" >
+      <div class="header-text">test</div>
+      <div class="header-text">test2</div>
+  </div>
 </div>
