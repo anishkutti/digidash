@@ -1,22 +1,124 @@
 <div class="top-header">
 
-<span class="dg-nav-menu-icon" (click)="openCloseNav()" (mouseenter)="mouseEnter($event)">&#9776;</span>
-<div  style=" padding-left:25px;font-size:20px; padding-top:8px; font-weight: 800px"> <i class="fa fa-fw fa-rub" style="font-size:20px;padding-right:35px; color:rgb(15, 150, 150)"></i>Geeks</div>
+      <span class="dg-nav-menu-icon" (click)="openCloseNav()" (mouseenter)="mouseEnter($event)">&#9776;</span>
+      <div style=" padding-left:25px;font-size:20px; padding-top:8px; font-weight: 800px">
+            <i class="fa fa-fw fa-rub" style="font-size:20px;padding-right:35px; color:rgb(15, 150, 150)"></i>Geeks</div>
 </div>
 
-<div id="mySidenav" class="sidenav"  (mouseleave)="mouseLeave()">
-    <a href="#"  id="menu-option-1" routerLink="/home"     routerLinkActive="active" class="cust-menu-box"   (click)="activateMenu(1)">
-          <i class="fa fa-fw fa-home"></i><span  class="menu-text">Home</span></a> 
-    <a href="#"  id="menu-option-2" routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)">
-          <i class="fa fa-fw fa-search"></i><span  class="menu-text">Search</span></a> 
-    <a href="#"  id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)"> 
-          <i class="fa fa-fw fa-envelope"></i><span  class="menu-text">Contact</span></a> 
-    <a href="#" id="menu-option-4" class="cust-menu-box"  routerLinkActive="active"  (click)="activateMenu(4)" >
-          <i class="fa fa-fw fa-user"></i><span  class="menu-text" >User</span></a> 
+<div id="mySidenav" class="sidenav" (mouseleave)="mouseLeave()">
+      <a href="#" id="menu-option-1" routerLink="/home" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(1)">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="menu-text">Home</span>
+      </a>
+      <a href="#" id="menu-option-2" routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)">
+            <i class="fa fa-fw fa-search"></i>
+            <span class="menu-text">Search</span>
+      </a>
+      <a href="#" id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="menu-text">Contact</span>
+      </a>
+      <a href="#" id="menu-option-4" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(4)">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="menu-text">User</span>
+      </a>
 </div>
 <div class="top-nav-row">
-  Home  /  <span style="color:rgb(95, 192, 224);font-weight:450"> Dashboard </span>
+      Home /
+      <span style="color:rgb(95, 192, 224);font-weight:450"> Dashboard </span>
+      <span class="fa-cust-filter" (click)="showFilter()">&#xf1de;</span>
 </div>
-<div id="main" >
-  <router-outlet></router-outlet>
+<div id="filterBox" class="filter-nav">
+      <div class="filter-details">
+            <div class="filter-header"> Filters</div>
+            <div class="filter-contents">
+                  <div>Date</div>
+                  <div>
+                        <input type="date" class="filter-contents-dropdown">
+                  </div>
+
+            </div>
+            <div class="filter-contents">
+                  <div>
+                        <mat-form-field class="example-full-width">
+                              <input type="text" placeholder="Select Make" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                              <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                          {{option}}
+                                    </mat-option>
+                              </mat-autocomplete>
+                        </mat-form-field>
+                  </div>
+
+            </div>
+            <div class="filter-contents">
+                  <div>
+                        <mat-form-field class="example-full-width">
+                              <input type="text" placeholder="Select Model" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                              <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                          {{option}}
+                                    </mat-option>
+                              </mat-autocomplete>
+                        </mat-form-field>
+                  </div>
+
+            </div>
+            <div class="filter-contents">
+                  <div>
+                        <mat-form-field class="example-full-width">
+                              <input type="text" placeholder="Select Sub-Type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                              <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                          {{option}}
+                                    </mat-option>
+                              </mat-autocomplete>
+                        </mat-form-field>
+                  </div>
+
+            </div>
+            <div></div>
+            <div class="compare-panel" >
+                        <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                                         (closed)="panelOpenState = false">
+                                      <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                          <b>Compare</b>
+                                        </mat-panel-title>
+                                      </mat-expansion-panel-header>
+                                      <p>I'm visible because I am open</p>
+                                    </mat-expansion-panel>
+                                  </mat-accordion>
+
+            </div>
+            <div>&nbsp; </div>
+            <div class="submit-button" ><button mat-stroked-button  color="accent">Search</button></div>
+      </div>
+</div>
+
+<div id="main">
+      <router-outlet></router-outlet>
+</div>
+
+<div>
+      <div id="filterNav" class="sidenav" (mouseleave)="mouseLeave()">
+            <a href="#" id="menu-option-1" routerLink="/home" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(1)">
+                  <i class="fa fa-fw fa-home"></i>
+                  <span class="menu-text">Home</span>
+            </a>
+            <a href="#" id="menu-option-2" routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)">
+                  <i class="fa fa-fw fa-search"></i>
+                  <span class="menu-text">Search</span>
+            </a>
+            <a href="#" id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)">
+                  <i class="fa fa-fw fa-envelope"></i>
+                  <span class="menu-text">Contact</span>
+            </a>
+            <a href="#" id="menu-option-4" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(4)">
+                  <i class="fa fa-fw fa-user"></i>
+                  <span class="menu-text">User</span>
+            </a>
+      </div>
+      sliders-h
 </div>

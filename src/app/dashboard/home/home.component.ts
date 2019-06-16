@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import AccessibilityModule from 'highcharts/modules/accessibility';
+import { portfolioTypeList } from '../../model/portfolioTypeList';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,18 @@ import AccessibilityModule from 'highcharts/modules/accessibility';
 })
 
 export class HomeComponent implements OnInit {
+  selectedPortfolio:portfolioTypeList = new portfolioTypeList(1, 'My Bookmarked');
+  portfolioList = [
+     new portfolioTypeList(1, 'My Bookmarked' ),
+     new portfolioTypeList(2, 'Recently Viewed' ),
+     new portfolioTypeList(3, 'Team Viewed' ),
+     new portfolioTypeList(4, 'Recommended (AI)')
+  ];
+
   chartOptions: any;
+  chartOptions2: any;
   title = 'app';
+
   highcharts: any;
   Highcharts: typeof Highcharts = Highcharts; // required
   chartConstructor: string = 'chart'; // optional string, defaults to 'chart'
@@ -28,6 +39,7 @@ export class HomeComponent implements OnInit {
   private rowData;
   private components;
   private defaultColDef;
+  private rowSelection;
   /*
   
   columnDefs = [
@@ -49,15 +61,11 @@ export class HomeComponent implements OnInit {
 
   constructor() {
     this.highcharts = Highcharts;
+    this.rowSelection = "single";
+    
     this.chartOptions = {
       chart: {
         type: "spline"
-      },
-      title: {
-        text: "Monthly Average Temperature"
-      },
-      subtitle: {
-        text: "Source: WorldClimate.com"
       },
       xAxis: {
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -90,9 +98,44 @@ export class HomeComponent implements OnInit {
         }
       ]
     };
+    this.chartOptions2 = {
+      chart: {
+        type: "spline"
+      },
+      xAxis: {
+        categories: ["Aan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+      },
+      yAxis: {
+        title: {
+          text: "Temperature °C"
+        }
+      },
+      tooltip: {
+        valueSuffix: " °C"
+      },
+      series: [
+        {
+          name: 'Tokyo',
+          data: [3.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        },
+        {
+          name: 'New York',
+          data: [-0.3, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+        },
+        {
+          name: 'Berlin',
+          data: [-0.6, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+        },
+        {
+          name: 'London',
+          data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }
+      ]
+    };
+
     // ag grid
     this.columnDefs = [
-      { field: "localTime" },
       {
         field: "show",
         cellRenderer: "showCellRenderer",
@@ -114,7 +157,6 @@ export class HomeComponent implements OnInit {
     ];
     this.rowData = [
       {
-        localTime: "5:00am",
         show: {
           name: "Wake Up Dublin",
           presenter: "Andrew Connell"
@@ -126,7 +168,6 @@ export class HomeComponent implements OnInit {
         e: 0.342
       },
       {
-        localTime: "5:15am",
         a: 0.423,
         b: 0.452,
         c: 0.523,
@@ -134,7 +175,6 @@ export class HomeComponent implements OnInit {
         e: 0.452
       },
       {
-        localTime: "5:30am",
         a: 0.537,
         b: 0.246,
         c: 0.426,
@@ -142,7 +182,6 @@ export class HomeComponent implements OnInit {
         e: 0.523
       },
       {
-        localTime: "5:45am",
         a: 0.893,
         b: 0.083,
         c: 0.532,
@@ -150,7 +189,6 @@ export class HomeComponent implements OnInit {
         e: 0.543
       },
       {
-        localTime: "6:00am",
         show: {
           name: "Pure Back In The Day",
           presenter: "Kevin Flanagan"
@@ -162,7 +200,6 @@ export class HomeComponent implements OnInit {
         e: 0.342
       },
       {
-        localTime: "6:15am",
         a: 0.423,
         b: 0.452,
         c: 0.523,
@@ -170,7 +207,6 @@ export class HomeComponent implements OnInit {
         e: 0.452
       },
       {
-        localTime: "6:30am",
         a: 0.537,
         b: 0.246,
         c: 0.426,
@@ -178,7 +214,6 @@ export class HomeComponent implements OnInit {
         e: 0.523
       },
       {
-        localTime: "6:45am",
         a: 0.893,
         b: 0.083,
         c: 0.532,
@@ -186,7 +221,6 @@ export class HomeComponent implements OnInit {
         e: 0.543
       },
       {
-        localTime: "7:00am",
         show: {
           name: "The Queens Breakfast",
           presenter: "Tony Smith"
@@ -198,7 +232,6 @@ export class HomeComponent implements OnInit {
         e: 0.342
       },
       {
-        localTime: "7:15am",
         a: 0.423,
         b: 0.452,
         c: 0.523,
@@ -206,7 +239,6 @@ export class HomeComponent implements OnInit {
         e: 0.452
       },
       {
-        localTime: "7:30am",
         a: 0.537,
         b: 0.246,
         c: 0.426,
@@ -214,7 +246,6 @@ export class HomeComponent implements OnInit {
         e: 0.523
       },
       {
-        localTime: "7:45am",
         a: 0.893,
         b: 0.083,
         c: 0.532,
@@ -222,7 +253,6 @@ export class HomeComponent implements OnInit {
         e: 0.543
       },
       {
-        localTime: "8:00am",
         show: {
           name: "Cosmetic Surgery",
           presenter: "Niall Crosby"
@@ -234,7 +264,6 @@ export class HomeComponent implements OnInit {
         e: 0.342
       },
       {
-        localTime: "8:15am",
         a: 0.423,
         b: 0.452,
         c: 0.523,
@@ -242,7 +271,6 @@ export class HomeComponent implements OnInit {
         e: 0.452
       },
       {
-        localTime: "8:30am",
         a: 0.537,
         b: 0.246,
         c: 0.426,
@@ -250,7 +278,6 @@ export class HomeComponent implements OnInit {
         e: 0.523
       },
       {
-        localTime: "8:45am",
         a: 0.893,
         b: 0.083,
         c: 0.532,
@@ -258,7 +285,6 @@ export class HomeComponent implements OnInit {
         e: 0.543
       },
       {
-        localTime: "8:00am",
         show: {
           name: "Brickfield Park Sessions",
           presenter: "Bricker McGee"
@@ -270,7 +296,6 @@ export class HomeComponent implements OnInit {
         e: 0.342
       },
       {
-        localTime: "8:15am",
         a: 0.423,
         b: 0.452,
         c: 0.523,
@@ -278,7 +303,6 @@ export class HomeComponent implements OnInit {
         e: 0.452
       },
       {
-        localTime: "8:30am",
         a: 0.537,
         b: 0.246,
         c: 0.426,
@@ -286,7 +310,6 @@ export class HomeComponent implements OnInit {
         e: 0.523
       },
       {
-        localTime: "8:45am",
         a: 0.893,
         b: 0.083,
         c: 0.532,
@@ -304,6 +327,24 @@ export class HomeComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+  }
+
+  // ag-grid functions
+
+  onSelectionChanged() {
+    console.log('here2');
+    this.chartOptions = this.chartOptions2;
+    this.highcharts.redraw();
+
+    var selectedRows = this.gridApi.getSelectedRows();
+    var selectedRowsString = "";
+    selectedRows.forEach(function (selectedRow, index) {
+      if (index !== 0) {
+        selectedRowsString += ", ";
+      }
+      selectedRowsString += selectedRow.athlete;
+    });
+    //document.querySelector("#selectedRows").innerHTML = selectedRowsString;
   }
 
   ngOnInit() {
@@ -332,22 +373,22 @@ function createShowCellRenderer() {
   };
   return ShowCellRenderer;
 }
-function ShowCellRenderer(){}
+function ShowCellRenderer() { }
 
-ShowCellRenderer.prototype.init = function(params) {
-    var cellBlank = !params.value;
-    if (cellBlank) { return null; }
+ShowCellRenderer.prototype.init = function (params) {
+  var cellBlank = !params.value;
+  if (cellBlank) { return null; }
 
-    this.ui = document.createElement('div');
-    this.ui.innerHTML =
-        '<div class="show-name">'
-            +params.value.name+'' +
-        '</div>' +
-        '<div class="show-presenter">'
-            +params.value.presenter +
-        '</div>';
+  this.ui = document.createElement('div');
+  this.ui.innerHTML =
+    '<div class="show-name">'
+    + params.value.name + '' +
+    '</div>' +
+    '<div class="show-presenter">'
+    + params.value.presenter +
+    '</div>';
 };
 
-ShowCellRenderer.prototype.getGui = function() {
-    return this.ui;
+ShowCellRenderer.prototype.getGui = function () {
+  return this.ui;
 };

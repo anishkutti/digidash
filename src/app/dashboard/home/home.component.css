@@ -6,17 +6,18 @@
     padding:2px;
     justify-content: center;
     flex-flow:row wrap;
+    
   }
   
   .flex-container > div {
-    background-color: hsl(0, 9%, 96%);
+    background-color: #f6f6f6;
     margin-right: 10px;
     padding:0px 10px 0px 20px;
     font-size: 30px;
     border: 1px solid #cedae2;
     border-radius: 5px;
-    width:48%;
     opacity: 1;
+    width:48%;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
@@ -102,4 +103,92 @@
 
   font-size: 20px;
   padding :7px;
+  font-weight: 500;
+
 }
+
+.ak-table-gen {
+  display: flex;
+}
+
+.ak-row-gen {
+  flex: 1;
+  display: flex;
+}
+
+.ak-row-gen:first-of-type {
+  flex-flow: wrap;
+}
+
+.ak-row-gen .rowspan2 {
+  flex: 1 1 100%;
+}
+
+.ak-row-gen div {
+
+  padding: 5px;
+  flex: 1;
+}
+.hm-right-corner {
+  font-size:14px;
+  border: 1px solid white;
+  border-radius: 4px;
+  display: flex; justify-content: flex-end  ;
+  right:0;
+}
+
+
+  .hm-header-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-align-content: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    font-size:20px;
+    padding:10px;
+    }
+
+.hm-right-item  {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    font-size:16px;
+    }
+
+    .hm-right-item > select {
+  border-radius: 4px;
+  border-color: lightcyan;
+  opacity: 0.9;
+  background-color: rgb(243, 240, 240);
+
+}
+.hm-left-item {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }

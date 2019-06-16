@@ -1,39 +1,59 @@
-
 <div class="flex-container" id="agGridCustData">
   <div>
-    <div id="myPortfolio" class="header-text">Portfolio - Top 5 </div>
-    <ag-grid-angular
-    #agGrid
-    style="width: 100%; height: 80%;"
-    id="myGrid"
-    class="ag-theme-balham"
-    [columnDefs]="columnDefs"
-    [rowData]="rowData"
-    [components]="components"
-    [defaultColDef]="defaultColDef"
-    [suppressRowTransform]="true"
-    (gridReady)="onGridReady($event)"
-  ></ag-grid-angular>
+    <div id="myPortfolio" class="header-text"> Daily Alert - Top 10 Flux </div>
+    <ag-grid-angular #agGrid style=" height: 80%;" id="myGrid1" class="ag-theme-balham" [columnDefs]="columnDefs" [rowData]="rowData"
+      [components]="components" [defaultColDef]="defaultColDef" [suppressRowTransform]="true" (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection"
+      (selectionChanged)="onSelectionChanged($event)"
+      ></ag-grid-angular>
 
   </div>
   <div>
-      <div id="myPortfolio" class="header-text">Trends</div>
-    <highcharts-chart 
-    [Highcharts]="Highcharts"
-  
-    [constructorType]="chartConstructor"
-    [options]="chartOptions"
-    [callbackFunction]="chartCallback"
+    <div id="myPortfolio" class="header-text">Trends</div>
+    <div>
+      <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" [callbackFunction]="chartCallback"
+        [(update)]="updateFlag" [oneToOne]="oneToOneFlag" [runOutsideAngular]="runOutsideAngularFlag" 
+        style="width: 100%; height: 300px; display: block; margin-bottom:14px; border:1px solid white; border-radius: 7px;border-top:2px solid rgb(17, 143, 201)">
+      </highcharts-chart>
+    </div>
+  </div>
+  <div>
 
-    [(update)]="updateFlag"
-    [oneToOne]="oneToOneFlag"
-    [runOutsideAngular]="runOutsideAngularFlag"
-  
-    style="width: 100%; height: 400px; display: block; margin-bottom:14px; border:1px solid white; border-radius: 7px;"
-  ></highcharts-chart>
   </div>
-  <div class="flex-container-card" >
-      <div class="header-text">test</div>
-      <div class="header-text">test2</div>
+</div>
+<div class="flex-container" id="agGridCustData">
+  <div>
+    <div id="myPortfolio" class="hm-header-container">
+      <div class="hm-left-item">My Portfolio </div>
+      <div class="hm-right-item">
+        <select>
+          <option *ngFor="let portfolio of portfolioList" value= {{portfolio.id}}>
+            {{portfolio.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <ag-grid-angular #agGrid style="width: 100%; height: 400px;" id="myGrid2" class="ag-theme-balham" [columnDefs]="columnDefs"
+      [rowData]="rowData"
+      [components]="components" [defaultColDef]="defaultColDef" [suppressRowTransform]="true"
+      (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection"
+      (selectionChanged)="onSelectionChanged($event)"
+      ></ag-grid-angular>
+
   </div>
+  <div>
+    <div id="myPortfolio" class="header-text" style="border-bottom:1px solid rgb(34, 23, 179)">Risk Summary </div>
+    <div>
+    <div class="ak-table-gen" style="width:220px;font-size: 14px;padding:12px;text-align: center">
+        <div class="ak-row-gen">
+            <div class="cell rowspan2" style="color:white;  background-color: rgb(255, 115, 0);border-top-left-radius: 4px;border-top-right-radius: 4px; border-bottom: 1px solid grey; opacity: 0.6; " >Total Risk <div style="text-align: center"> 17</div></div>
+            <div class="cell" style="color:white;  background-color: rgb(240, 100, 90);" >Open<div style="text-align: center;"> 17</div></div>
+            <div class="cell" style="color:white;  background-color: rgb(24, 177, 75);">Closed<div style="text-align: center"> 17</div></div>
+            <div class="cell rowspan2" style="color:white;  background-color: rgb(236, 60, 47);border-top: 1px solid grey; opacity: 0.6;">Financial Impact<div style="text-align: center"> 22,33,333</div></div>
+
+          </div>
+      </div>
+    </div>
+</div>
 </div>

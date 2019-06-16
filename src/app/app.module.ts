@@ -7,6 +7,15 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 const appRoutes: Routes = [
   {
     path: 'home',
@@ -33,7 +42,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     TooltipModule.forRoot(),
-    AppRoutingModule,
+     ReactiveFormsModule,
+    MatAutocompleteModule,
+    AppRoutingModule,BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,MatExpansionModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
