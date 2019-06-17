@@ -192,3 +192,27 @@
     -ms-flex-item-align: auto;
     align-self: auto;
     }
+
+.flex-risk-summary-container{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: end;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-star;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  font-size:20px;
+  padding:5px;
+
+}

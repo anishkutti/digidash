@@ -1,0 +1,12 @@
+ <ag-grid-angular
+      #agGrid
+      style="width: 500px; height: 400px;"
+      id="myGrid"
+      class="ag-theme-balham"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowDragManaged]="true"
+      [animateRows]="true"
+      [rowData]="rowData"
+      (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>
