@@ -1,3 +1,46 @@
-<p>
-  analysis-dash works!
-</p>
+<div class="flex-container-top" id="agGridCustData">
+  <div>
+    <div id="myPortfolio" class="header-text"> Customer Analysis </div>
+    <ag-grid-angular #agGrid style=" height: 300px;" id="myGrid1" class="ag-theme-balham" [columnDefs]="columnDefs" [rowData]="rowData"
+      [components]="components" [defaultColDef]="defaultColDef" [suppressRowTransform]="true" (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection" (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular>
+
+  </div>
+  <div>
+  </div>
+</div>
+<div class="flex-container-second" id="agGridCustData">
+    <div>
+        <div id="myPortfolio" class="header-text">Customer Trends</div>
+        <div>
+          <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" [callbackFunction]="chartCallback"
+            [(update)]="updateFlag" [oneToOne]="oneToOneFlag" [runOutsideAngular]="runOutsideAngularFlag" style="width: 100%; height: 300px; display: block; margin-bottom:14px; border:1px solid white; border-radius: 7px;border-top:2px solid rgb(17, 143, 201)">
+          </highcharts-chart>
+        </div>
+      </div>
+    
+  <div>
+    <div id="myPortfolio" class="hm-header-container">
+      <div class="hm-left-item">Customer Details </div>
+      <div class="hm-right-item">
+        <select class="hm-selection-dropdown">
+          <option *ngFor="let portfolio of portfolioList" value={{portfolio.id}}>
+            {{portfolio.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <ag-grid-angular #agGrid style="width: 100%; height: 400px;" id="myGrid2" class="ag-theme-balham" [columnDefs]="columnDefs"
+      [rowData]="rowData" [components]="components" [defaultColDef]="defaultColDef" [suppressRowTransform]="true" (gridReady)="onGridReady($event)"
+      [rowSelection]="rowSelection" (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular>
+
+  </div>
+  <div>
+    <div id="myPortfolio" class="header-text" style="border-bottom:1px solid rgb(34, 23, 179)">Customer Summary </div>
+    <div class="flex-risk-summary-container">
+      <div>contents to be added  :)
+      </div>
+
+    </div>
+  </div>
+</div>
