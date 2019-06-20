@@ -54,11 +54,11 @@
   /* On screens that are 600px wide or less, the background color is olive */
 @media screen and (max-width: 600px) {
 .flex-container > div {
-    background-color: olive;
-    color: white;
+    background-color: rgb(38, 56, 90);
+    color: lightblue;
     flex-flow:column wrap;
     width:100%;
-
+font-weight: 300 !important;
   }
 }
 
@@ -131,10 +131,21 @@
 }
 .hm-right-corner {
   font-size:14px;
-  border: 1px solid white;
-  border-radius: 4px;
   display: flex; justify-content: flex-end  ;
   right:0;
+}
+.hm-selection-dropdown {
+  border: 1px solid white;
+  border-radius: 14px;
+  border-color: #5393ca;
+  padding: 1px 2px 1px 8px;
+  background-color: #ffffff;
+  font-size: 16px;
+  font-weight: 450;
+  color: rgb(39, 39, 146);
+  margin: 0 0 0 25px;
+  display:inline-block;
+  overflow:hidden;
 }
 
 
@@ -174,13 +185,7 @@
     font-size:16px;
     }
 
-    .hm-right-item > select {
-  border-radius: 4px;
-  border-color: lightcyan;
-  opacity: 0.9;
-  background-color: rgb(243, 240, 240);
 
-}
 .hm-left-item {
     -webkit-order: 0;
     -ms-flex-order: 0;

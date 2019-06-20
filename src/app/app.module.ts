@@ -11,10 +11,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule,MatNativeDateModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DigiFiltersComponent } from './shared/digi-filters/digi-filters.component';
+ 
 
 const appRoutes: Routes = [
   {
@@ -24,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: 'searcher',
     loadChildren: './searcher/searcher.module#SearcherModule'
+  },
+  {
+    path: 'analysis',
+    loadChildren: './analysis/analysis.module#AnalysisModule'
   },
   {
     path: '',
@@ -37,12 +45,14 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DigiFiltersComponent
   ],
   imports: [
     BrowserModule,
     TooltipModule.forRoot(),
      ReactiveFormsModule,
+     MatDatepickerModule, MatNativeDateModule,
     MatAutocompleteModule,
     AppRoutingModule,BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,MatRadioModule,

@@ -134,48 +134,7 @@ body {
     border-left: 1px solid #dadada;
     
 }
-  
-.filter-details {
-  display:flex;
-  flex-direction: column;
-  margin-right:15px;
-}
-.filter-header {
-    padding:2px; margin:1px;
-    border-bottom:1px solid blue;
-    margin-left:2px;
-    font-size:20px;
-    font-weight: 450;
-  
-}
-.filter-contents {
-  padding:22px 10px 10px 10px;
-}
-
-.filter-contents-dropdown {
-  margin-right:-12px;
-  border: 1px solid wheat;
-  opacity: 0.9;
-  max-width:140px;
-  padding: 1px;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 90%;
-  padding-right:30px;
-}
-
-.submit-button {
-  justify-content: end;
-  padding:30px;
-  right:10px;
-}
-
+ 
 .compare-panel {
   padding:10px;
   right:10px;

@@ -1,7 +1,7 @@
 <div class="flex-container" id="agGridCustData">
   <div>
     <div id="myPortfolio" class="header-text"> Daily Alert - Top 10 Flux </div>
-    <ag-grid-angular #agGrid style=" height: 80%;" id="myGrid1" class="ag-theme-balham" [columnDefs]="columnDefs" [rowData]="rowData"
+    <ag-grid-angular #agGrid style=" height: 300px;" id="myGrid1" class="ag-theme-balham" [columnDefs]="columnDefs" [rowData]="rowData"
       [components]="components" [defaultColDef]="defaultColDef" [suppressRowTransform]="true" (gridReady)="onGridReady($event)"
       [rowSelection]="rowSelection" (selectionChanged)="onSelectionChanged($event)"></ag-grid-angular>
 
@@ -23,7 +23,7 @@
     <div id="myPortfolio" class="hm-header-container">
       <div class="hm-left-item">My Portfolio </div>
       <div class="hm-right-item">
-        <select>
+        <select class="hm-selection-dropdown">
           <option *ngFor="let portfolio of portfolioList" value={{portfolio.id}}>
             {{portfolio.name}}
           </option>

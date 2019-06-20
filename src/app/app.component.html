@@ -14,9 +14,9 @@
             <i class="fa fa-fw fa-search"></i>
             <span class="menu-text">Search</span>
       </a>
-      <a href="#" id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="menu-text">Contact</span>
+      <a href="#" id="menu-option-3" class="cust-menu-box"  routerLink="/analysis" routerLinkActive="active" (click)="activateMenu(3)">
+            <i class="fa fa-fw fa-eye"></i>
+            <span class="menu-text">Analysis</span>
       </a>
       <a href="#" id="menu-option-4" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(4)">
             <i class="fa fa-fw fa-user"></i>
@@ -29,96 +29,9 @@
       <span class="fa-cust-filter" (click)="showFilter()">&#xf1de;</span>
 </div>
 <div id="filterBox" class="filter-nav">
-      <div class="filter-details">
-            <div class="filter-header"> Filters</div>
-            <div class="filter-contents">
-                  <div>Date</div>
-                  <div>
-                        <input type="date" class="filter-contents-dropdown">
-                  </div>
-
-            </div>
-            <div class="filter-contents">
-                  <div>
-                        <mat-form-field class="example-full-width">
-                              <input type="text" placeholder="Select Make" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                              <mat-autocomplete #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                          {{option}}
-                                    </mat-option>
-                              </mat-autocomplete>
-                        </mat-form-field>
-                  </div>
-
-            </div>
-            <div class="filter-contents">
-                  <div>
-                        <mat-form-field class="example-full-width">
-                              <input type="text" placeholder="Select Model" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                              <mat-autocomplete #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                          {{option}}
-                                    </mat-option>
-                              </mat-autocomplete>
-                        </mat-form-field>
-                  </div>
-
-            </div>
-            <div class="filter-contents">
-                  <div>
-                        <mat-form-field class="example-full-width">
-                              <input type="text" placeholder="Select Sub-Type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                              <mat-autocomplete #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                          {{option}}
-                                    </mat-option>
-                              </mat-autocomplete>
-                        </mat-form-field>
-                  </div>
-
-            </div>
-            <div></div>
-            <div class="compare-panel" >
-                        <mat-accordion>
-                                    <mat-expansion-panel (opened)="panelOpenState = true"
-                                                         (closed)="panelOpenState = false">
-                                      <mat-expansion-panel-header>
-                                        <mat-panel-title>
-                                          <b>Compare</b>
-                                        </mat-panel-title>
-                                      </mat-expansion-panel-header>
-                                      <p>I'm visible because I am open</p>
-                                    </mat-expansion-panel>
-                                  </mat-accordion>
-
-            </div>
-            <div>&nbsp; </div>
-            <div class="submit-button" ><button mat-stroked-button  color="accent">Search</button></div>
-      </div>
+            <app-digi-filters></app-digi-filters>
 </div>
 
 <div id="main">
       <router-outlet></router-outlet>
-</div>
-
-<div>
-      <div id="filterNav" class="sidenav" (mouseleave)="mouseLeave()">
-            <a href="#" id="menu-option-1" routerLink="/home" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(1)">
-                  <i class="fa fa-fw fa-home"></i>
-                  <span class="menu-text">Home</span>
-            </a>
-            <a href="#" id="menu-option-2" routerLink="/searcher" routerLinkActive="active" class="cust-menu-box" (click)="activateMenu(2)">
-                  <i class="fa fa-fw fa-search"></i>
-                  <span class="menu-text">Search</span>
-            </a>
-            <a href="#" id="menu-option-3" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(3)">
-                  <i class="fa fa-fw fa-envelope"></i>
-                  <span class="menu-text">Contact</span>
-            </a>
-            <a href="#" id="menu-option-4" class="cust-menu-box" routerLinkActive="active" (click)="activateMenu(4)">
-                  <i class="fa fa-fw fa-user"></i>
-                  <span class="menu-text">User</span>
-            </a>
-      </div>
-      sliders-h
 </div>

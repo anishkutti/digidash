@@ -1,0 +1,68 @@
+<div class="filter-details">
+    <div class="filter-header"> Filters</div>
+    <div class="filter-contents">
+          <div>
+              <mat-form-field class="example-full-width">
+                  <input matInput [matDatepickerFilter]="custDateFilter" [matDatepicker]="picker2" placeholder="Choose a date"  class="cust-mat-dropdown">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>                            
+      </div>
+
+          <div>
+                <mat-form-field class="example-full-width">
+                      <input type="text" placeholder="Select Make" aria-label="Number" matInput [formControl]="makeControl" [matAutocomplete]="make">
+                      <mat-autocomplete #make="matAutocomplete">
+                            <mat-option *ngFor="let option of makeList" [value]="option"  class="cust-mat-dropdown">
+                                  {{option}}
+                            </mat-option>
+                      </mat-autocomplete>
+                </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field class="example-full-width">
+                  <input type="text" placeholder="Select Model" aria-label="Number" matInput [formControl]="modelControl" [matAutocomplete]="model" >
+                      <mat-autocomplete #model="matAutocomplete"  class="cust-mat-dropdown">
+                            <mat-option *ngFor="let optionee of modelOptions | async" [value]="optionee"  class="cust-mat-dropdown">
+                                  {{optionee}}
+                            </mat-option>
+                      </mat-autocomplete>
+                </mat-form-field>
+          </div>
+
+          <div>
+              <mat-form-field class="example-full-width">
+                  <input type="text" placeholder="Select Sub-Type" aria-label="Number" matInput [formControl]="submodelControl" [matAutocomplete]="submodel">
+                      <mat-autocomplete #submodel="matAutocomplete" class="cust-mat-dropdown">
+                            <mat-option *ngFor="let optionss of submodelOptions | async" [value]="optionss" class="cust-mat-dropdown">
+                                  {{optionss}}
+                            </mat-option>
+                      </mat-autocomplete>
+                </mat-form-field>
+          </div>
+
+    </div>
+    <div></div>
+    <div class="compare-panel" >
+                <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState = true"
+                                                 (closed)="panelOpenState = false">
+                              <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                  <b>Compare</b>
+                                </mat-panel-title>
+                              </mat-expansion-panel-header>
+
+                              <mat-form-field class="example-full-width">
+                                  <input matInput [matDatepickerFilter]="custDateFilter" [matDatepicker]="picker" placeholder="Choose a date">
+                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>                            
+                              </mat-expansion-panel>
+
+                              </mat-accordion>
+
+    </div>
+    <div>&nbsp; </div>
+    <div class="submit-button" ><button mat-stroked-button  color="accent">Search</button></div>
+</div>
