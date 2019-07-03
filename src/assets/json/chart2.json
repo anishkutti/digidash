@@ -1,0 +1,73 @@
+{
+      "chart" : {
+        "zoomType" : "xy"
+      },
+      "title" : {
+        "text" : "Average Monthly Temperature and Rainfall in Tokyo"
+      },
+      "subtitle" : {
+        "text" : "Source : WorldClimate.com"
+      },
+      "xAxis" : [{
+        "categories" : ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          "crosshair" : true
+      }],
+      "yAxis" : [{ 
+        "labels" : {
+            "format" : "{value}°C",
+            "style" : {
+                "color" : "green"
+          }
+        },
+        "title" : {
+            "text" : "Temperature",
+            "style" : {
+                "color" :"red"
+          }
+        }
+      }, { 
+        "title" : {
+            "text" : "Rainfall",
+            "style" : {
+                "color" : "black"
+          }
+        },
+        "labels" : {
+            "format" : "{value} mm",
+            "style" : {
+                "color" : "blue"
+          }
+        },
+        "opposite" : true
+      }],
+      "tooltip" : {
+        "shared" : true
+      },
+      "legend" : {
+        "layout" : "vertical",
+        "align" : "left",
+        "x" : 120,
+        "verticalAlign" : "top",
+        "y" : 100,
+        "floating" : true,
+        "backgroundColor" : "rgba(255,255,255,0.25)"
+      },
+      "series" : [{
+        "name" : "Rainfall",
+        "type" : "column",
+        "yAxis" : 1,
+        "data" : [59.9, 81.5, 136.4, 159.2, 174.0, 186.0, 145.6, 178.5, 256.4, 234.1, 295.6, 64.4],
+        "tooltip" : {
+            "valueSuffix" : " mm"
+        }
+
+      }, {
+        "name" : "Temperature",
+        "type" : "spline",
+        "data" : [17.0, 16.9, 19.5, 24.5, 28.2, 31.5, 35.2, 36.5, 33.3, 28.3, 23.9, 9.6],
+        "tooltip" : {
+            "valueSuffix" : "°C"
+        }
+      }]
+    }

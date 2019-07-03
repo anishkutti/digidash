@@ -1,0 +1,48 @@
+<div class="flex-container" id="agGridCustData">
+  <div style="border:1px solid lightgrey; height: 100%">
+    <div id="myPortfolio" class="txt-small"> Risk Insights Interactive Demo</div>
+
+    <mat-tab-group style="border:1px solid lightgrey; height: 90%; border-radius: 4px" [color]="white" [backgroundColor]="red">
+      <mat-tab label="First">
+        <ng-template matTabContent>
+          <div style="color:grey; font-weight: 300;font-size: 18px; line-height: 50px">Analize the Risk in Different Regions and Sectors</div>
+            <div class="flex-inner-tabs">
+                <div class="flex-inner-tabs-details">
+                    <div style="color:grey; font-weight: 300;font-size: 18px;height:300px; line-height: 50px">Analize the Risk in Different Regions and Sectors
+                    <canvas #BarChar baseChart width="1" height="0" [legend]="barLegend" [chartType]="'horizontalBar'" [datasets]="BarChartData" [labels]="BarCharLabels" [options]="barChartOptions"
+                    [colors]="BarChartColors" 
+                    (chartClick)="onChartClick($event)" >
+                  </canvas>
+                  </div>
+                  </div>
+        
+                  <div class="flex-inner-tabs-details">
+                      <div style="color:grey; font-weight: 300;font-size: 18px;height:300px; line-height: 50px">Analize the Risk in Different Regions and Sectors
+                      <canvas #DoughnutChart width="1" height="0" baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [colors]="colors" [options]="chartOptions"
+                      [labels]="chartLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"  >
+                    </canvas>
+                  </div>
+                  </div>
+                  <div class="flex-inner-tabs-full" >
+                      <canvas #DoughnutChart width="1" height="0" baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [colors]="colors" [options]="chartOptions"
+                      [labels]="chartLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"  >
+                    </canvas>
+        
+                  </div>
+                  
+                </div>
+        
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Second">
+        <ng-template matTabContent>
+test
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Third">
+        <ng-template matTabContent>
+          Content 3 3-
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>

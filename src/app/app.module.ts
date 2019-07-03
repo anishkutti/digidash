@@ -18,24 +18,27 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule,MatNativeDateModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DigiFiltersComponent } from './shared/digi-filters/digi-filters.component';
- 
+ import { BackendApiService} from './services/backend-api.service'
+ import { HttpClientModule } from '@angular/common/http';
 
+ import { ChartsModule } from 'ng2-charts';
+ 
 const appRoutes: Routes = [
   {
     path: 'home',
-    loadChildren: './dashboard/dashboard.module#DashboardModule'
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
-    path: 'searcher',
-    loadChildren: './searcher/searcher.module#SearcherModule'
+    path: 'summary',
+    loadChildren: () => import('./summary/summary.module').then(m => m.SummaryModule)
   },
   {
     path: 'analysis',
-    loadChildren: './analysis/analysis.module#AnalysisModule'
+    loadChildren: () => import('./analysis/analysis.module').then(m => m.AnalysisModule)
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }
@@ -58,12 +61,14 @@ const appRoutes: Routes = [
     MatButtonModule, MatCheckboxModule,MatRadioModule,
     MatFormFieldModule,
     MatInputModule,MatExpansionModule,
+    HttpClientModule,
+    ChartsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [BackendApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

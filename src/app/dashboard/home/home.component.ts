@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import AccessibilityModule from 'highcharts/modules/accessibility';
 import { portfolioTypeList } from '../../model/portfolioTypeList';
+import { BackendApiService } from '../../services/backend-api.service'
+import { EventRaiserService } from '../../services/event-raiser.service'
 
 @Component({
   selector: 'app-home',
@@ -40,6 +42,22 @@ export class HomeComponent implements OnInit {
   private components;
   private defaultColDef;
   private rowSelection;
+  
+
+public  displayData(error, data, ctx) {
+    debugger;
+    let s=parent;
+console.log(s);
+    console.log('Data Received', data);
+    
+    if (error) {
+      console.error(error);
+      return;
+    }
+    ctx.chartOptions = data;
+    //this.chartOptions = data;
+    //this.chartOptions2= data;
+  }
   /*
   
   columnDefs = [
@@ -59,8 +77,9 @@ export class HomeComponent implements OnInit {
   }
 
   chartOptions22: any;
-
-  constructor() {
+  sayMyName:any;
+  constructor(private backendApiService: BackendApiService, private eventRaiser: EventRaiserService) {
+    
     this.highcharts = Highcharts;
     this.rowSelection = "single";
     this.chartOptions = {
@@ -409,8 +428,9 @@ export class HomeComponent implements OnInit {
 
   onSelectionChanged() {
     console.log('here2');
-    this.chartOptions = this.chartOptions2;
-    this.highcharts.redraw();
+    this.getData();
+    //this.chartOptions = this.chartOptions2;
+    //this.highcharts.redraw();
 
     var selectedRows = this.gridApi.getSelectedRows();
     var selectedRowsString = "";
@@ -423,7 +443,18 @@ export class HomeComponent implements OnInit {
     //document.querySelector("#selectedRows").innerHTML = selectedRowsString;
   }
 
+
+  getData() {
+    //this.sayMyName = this.sayMyName.bind(this);
+
+    this.backendApiService.getChartData(this.displayData, this);
+    this.eventRaiser.triggerEvent('CLIENT_CHANGED', 'anish');
+  }
   ngOnInit() {
+    
+    this.eventRaiser.eventClientTChange.subscribe(message => {
+      console.log(message);
+    });
   }
 }
 

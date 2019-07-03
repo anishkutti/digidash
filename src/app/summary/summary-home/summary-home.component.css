@@ -1,0 +1,96 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #e4e5e6;
+    padding:2px;
+    justify-content: center;
+    flex-flow:row wrap;
+    height:100%;
+    flex: 1;
+  }
+  
+  .flex-container > div {
+    background-color: #f6f6f6;
+    margin-right: 10px;
+    padding:0px 10px 0px 20px;
+    font-size: 30px;
+    border: 1px solid #cedae2;
+    border-radius: 5px;
+    opacity: 1;
+    width:98%;
+    height:100%;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 2s;
+    box-shadow: 0px 6px 14px 0px rgba(0,0,0,0.06);
+  }
+
+  .txt-small {
+    font-size: 28px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+
+  .flex-inner-tabs {
+    display: flex;
+    flex-direction: row;
+    background-color: #e4e5e6;
+    padding:2px;
+    justify-content: center;
+    flex-flow:row wrap;
+
+  }
+
+  .flex-inner-tabs-details {
+    background-color: #f6f6f6;
+    margin-right: 10px;
+    font-size: 30px;
+    opacity: 1;
+    width:48%;
+    height:340px;
+    margin-bottom:10px;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 2s;
+  }
+
+  .flex-inner-tabs-full {
+    background-color: #f6f6f6;
+    margin-right: 10px;
+    font-size: 30px;
+    opacity: 1;
+    width:98%;
+    height:340px;
+    margin-bottom:10px;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 2s;
+  }
+
+
+  @media screen and (max-width: 700px) {
+    .flex-container > div {
+        background-color: rgb(38, 56, 90);
+        color: lightblue;
+        flex-flow:column wrap;
+        width:100%;
+    font-weight: 300 !important;
+      }
+
+      .flex-inner-tabs-details {
+        background-color: #f6f6f6;
+        margin-right: 10px;
+        font-size: 30px;
+        opacity: 1;
+        width:98%;
+        height:340px;
+        margin-bottom:10px;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+      }
+    
+    }

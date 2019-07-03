@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+//import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-risk',
@@ -16,7 +16,7 @@ export class RiskComponent implements OnInit {
   private defaultColDef;
   private rowData;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.rowData = [
       { Portfolio: 'Mango Inc',Percentage: 23,risk: 'Critical',year: 2008,date: '24/08/2008',sport: 'Swimming',gold: 8,silver: 0,bronze: 0,total: 8	},
       {Portfolio: 'Aqua Really Inc',Percentage: 19,risk: 'Critical',year: 2004,date: '29/08/2004',sport: 'Swimming',gold: 6,silver: 0,bronze: 2,total: 8	},
