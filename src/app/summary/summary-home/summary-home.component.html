@@ -5,7 +5,7 @@
     <mat-tab-group style="border:1px solid lightgrey; height: 90%; border-radius: 4px" [color]="white" [backgroundColor]="red">
       <mat-tab label="First" >
         <ng-template matTabContent>
-          <div style="color:rgb(64, 69, 128); font-weight: 300;font-size: 18px; line-height: 50px;text-align: center; ">Analize the Explore the as i can explore what i can analyse</div>
+          <div style="color:rgb(64, 69, 128); font-weight: 300;font-size: 18px; line-height: 50px;text-align: center;background-color: #f0f4f5 ">Analize the Explore the as i can explore what i can analyse</div>
             <div class="flex-inner-tabs">
                 <div class="flex-inner-tabs-details">
                     <div style="color:grey; font-weight: 300;font-size: 18px;height:250px; line-height: 50px">This is the best
@@ -17,7 +17,7 @@
                   </div>
         
                   <div class="flex-inner-tabs-details">
-                      <div style="color:grey; font-weight: 300;font-size: 18px;height:300px; line-height: 50px">Analize the Risk in Different Regions and Sectors
+                      <div style="color:grey; font-weight: 300;font-size: 18px;height:300px; ">Analize the Risk in Different Regions and Sectors
                       <canvas #DoughnutChart width="1" height="0" baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [colors]="colors" [options]="chartOptions"
                       [labels]="chartLabels" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"  >
                     </canvas>
