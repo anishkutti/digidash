@@ -1,6 +1,7 @@
 body {
     font-family: "Lato", sans-serif;
     background-color: #02477A;
+
   }
   
   .sidenav {
@@ -8,7 +9,6 @@ body {
     width: 0;
     position: fixed;
     right: 0;
-    background-color: rgba(47, 97, 142, 1);
     background-color: rgb(67, 67, 72);
     overflow-x: hidden;
     transition: 0.5s;
@@ -39,7 +39,7 @@ body {
   
   #main {
     transition: margin-right .5s;
-    padding: 6px;
+    padding: 2px;
  }
   
   @media screen and (max-height: 450px) {

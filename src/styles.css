@@ -3,6 +3,16 @@
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+.header-text {
+
+  font-size: 20px;
+  padding :7px;
+  font-weight: 500;
+
+}
+body {
+  box-sizing: border-box;
+}
 .show-cell {
     background: white;
     border-left: 1px solid lightgrey !important;
@@ -18,3 +28,38 @@
     font-style: italic;
   }
   
+  .mat-tab-label {
+    /*background-color:rgba(203, 223, 231, 0.5) !important;*/
+    color: grey !important;
+    font-weight: 500;
+    padding-bottom:15px !important;
+    padding-left:14px !important;
+}
+  .mat-tab-label.mat-tab-label-active {
+    /*background-color: rgb(13, 70, 146,0.8);*/
+    border-right:1px solid rgb(173, 216, 230,0.8);
+    border-left:1px solid lightblue;
+    border-radius: 4px;
+    color: navy !important;
+    font-weight: 500;
+    padding-bottom:15px;
+
+}
+.mat-ink-bar {
+    background-color: green;
+}
+.mat-tab-group{
+  min-height: 710px;
+
+}
+
+.mat-tab-label-container {
+  height: 30px;
+}
+.mat-tab-link:not(.mat-tab-label-active):focus {
+  background-color: rgba(126, 162, 212, 0.8) !important;
+}
+.mat-tab-label-active{
+  background-color: rgb(216, 225, 236, 0.8) !important;
+  opacity: 1 !important;
+  }

@@ -1,14 +1,14 @@
 <div class="flex-container" id="agGridCustData">
   <div style="border:1px solid lightgrey; height: 100%">
-    <div id="myPortfolio" class="txt-small"> Risk Insights Interactive Demo</div>
+    <div id="myPortfolio" class="header-text"> Risk Insights Interactive Demo</div>
 
     <mat-tab-group style="border:1px solid lightgrey; height: 90%; border-radius: 4px" [color]="white" [backgroundColor]="red">
-      <mat-tab label="First">
+      <mat-tab label="First" >
         <ng-template matTabContent>
-          <div style="color:grey; font-weight: 300;font-size: 18px; line-height: 50px">Analize the Risk in Different Regions and Sectors</div>
+          <div style="color:rgb(64, 69, 128); font-weight: 300;font-size: 18px; line-height: 50px;text-align: center; ">Analize the Explore the as i can explore what i can analyse</div>
             <div class="flex-inner-tabs">
                 <div class="flex-inner-tabs-details">
-                    <div style="color:grey; font-weight: 300;font-size: 18px;height:300px; line-height: 50px">Analize the Risk in Different Regions and Sectors
+                    <div style="color:grey; font-weight: 300;font-size: 18px;height:250px; line-height: 50px">This is the best
                     <canvas #BarChar baseChart width="1" height="0" [legend]="barLegend" [chartType]="'horizontalBar'" [datasets]="BarChartData" [labels]="BarCharLabels" [options]="barChartOptions"
                     [colors]="BarChartColors" 
                     (chartClick)="onChartClick($event)" >
