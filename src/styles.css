@@ -34,6 +34,7 @@ body {
     font-weight: 500;
     padding-bottom:15px !important;
     padding-left:14px !important;
+    
 }
   .mat-tab-label.mat-tab-label-active {
     /*background-color: rgb(13, 70, 146,0.8);*/
@@ -60,6 +61,26 @@ body {
   background-color: rgba(126, 162, 212, 0.8) !important;
 }
 .mat-tab-label-active{
-  background-color: rgb(216, 225, 236, 0.8) !important;
+  background-color: rgba(224, 228, 233, 0.8) !important;
   opacity: 1 !important;
   }
+
+@media screen and (max-width: 700px) {
+.mat-tab-labels {
+  background-color: rgb(222, 228, 228) !important;
+}
+.mat-tab-label.mat-tab-label-active {
+  /*background-color: rgb(13, 70, 146,0.8);*/
+  color: white !important;
+  font-weight: 500;
+  padding-top:-3px;
+}
+
+.mat-tab-label-active{
+  background-color: rgb(33, 33, 82) !important;
+  color: white !important;
+  font-weight: 500;
+
+}
+
+}

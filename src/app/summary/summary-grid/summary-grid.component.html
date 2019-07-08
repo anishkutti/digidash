@@ -1,0 +1,14 @@
+<div class="dd-chart-header" >DETAILED ANALYSIS</div>
+<input type="text" class="dd-text-box" placeholder="filter" (keyup)="quickSearch()"  name="searchValue"   [(ngModel)] = "searchValue">
+<ag-grid-angular
+      #agGrid
+      style="width: 100%; height: 100%;"
+      id="myGrid"
+      class="ag-theme-balham"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowData]="rowData"
+      (gridReady)="onGridReady($event)"
+      [enableRangeSelection]="true"
+
+    ></ag-grid-angular>

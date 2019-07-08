@@ -48,7 +48,7 @@ public douLegend;
     
   }
   public arbarChartLegend =['JAN', 'FEB'];
-  public BarCharLabels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'];
+  public BarCharLabels = ['Retail Lending', 'Real Estate Commercial', 'Finance Insurance', 'Energy', 'Mining', 'Wholesale Trade', 'Agri'];
 
   // STATIC DATA FOR THE CHART IN JSON FORMAT.
   public BarChartData = [

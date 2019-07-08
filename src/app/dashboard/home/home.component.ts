@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
   
 
 public  displayData(error, data, ctx) {
-    debugger;
     let s=parent;
 console.log(s);
     console.log('Data Received', data);
@@ -422,6 +421,7 @@ console.log(s);
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    this.gridApi.selectIndex(0, false, false);
   }
 
   // ag-grid functions
